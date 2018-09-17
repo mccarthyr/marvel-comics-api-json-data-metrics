@@ -21,7 +21,7 @@ java -jar challenge-1.0-SNAPSHOT-jar-with-dependencies.jar powers 1010846
 java -jar challenge-1.0-SNAPSHOT-jar-with-dependencies.jar characters
 ```
 
-## To run a a Maven project
+## To run as a Maven project
 Clone the repository and run:
 
 ```shell
