@@ -33,9 +33,20 @@ mvn exec:java -Dexec.args="characters"
 mvn exec:java -Dexec.args="characters 1010846"
 mvn exec:java -Dexec.args="powers 1010846"
 ```
-## NOTE:
+## NOTE - Request Metric Numbers:
 Each request that is sent to the Marvel Developer API contains an **offset** argument in the url. For the top ten "characters" listing a total of **1491** results exist but when the starting point of an offset of 0 is used the total results provided in the chatacter data wrapper is **1483**. If any other offset is used this total changes again to 1491. I have left this as is because I required a starting point of an offset of 0 in order to get all results and dynamically increase it with multiple requests due each resultset being limited to 100.
 There are a total of **15 requests** for the "characters" argument - 1491 split up into 100 results at a time.
+
+## Configuration Properties
+A few configuration properties are set in *src/main/resources/config.properties* but this file is encrypted using git-crypt. Here is an example of what that file contains:
+
+```shell
+marvel.api.key.public=<marvel_public_key>
+marvel.api.key.private=<marvel_private_key>
+marvel.api.ts=1
+marvel.api.base.endpoint=http://gateway.marvel.com/
+marvel.api.endpoint.resources.characters=v1/public/characters
+```
 
 ## Marvel Character Powers
 The character powers are scraped from a character's wiki page if the page url is available and if the page contains the corresponding section. The secion that is used is a circle rating area at the bottom of most character wiki pages and the data it represents is what's used in the JSON response, namely: durability, energy, fighting skills, intelligence, speed, strength.
