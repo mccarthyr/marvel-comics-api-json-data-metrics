@@ -33,6 +33,9 @@ mvn exec:java -Dexec.args="characters"
 mvn exec:java -Dexec.args="characters 1010846"
 mvn exec:java -Dexec.args="powers 1010846"
 ```
+## NOTE:
+Each request that is sent to the Marvel Developer API contains an **offset** argument in the url. For the top ten "characters" listing a total of **1491** results exist but when the starting point of an offset of 0 is used the total results provided in the chatacter data wrapper is **1483**. If any other offset is used this total changes again to 1491. I have left this as is because I required a starting point of an offset of 0 in order to get all results and dynamically increase it with multiple requests due each resultset being limited to 100.
+
 
 ## Marvel Character Powers
 The character powers are scraped from a character's wiki page if the page url is available and if the page contains the corresponding section. The secion that is used is a circle rating area at the bottom of most character wiki pages and the data it represents is what's used in the JSON response, namely: durability, energy, fighting skills, intelligence, speed, strength.
