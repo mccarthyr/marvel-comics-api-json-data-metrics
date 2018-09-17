@@ -37,5 +37,4 @@ mvn exec:java -Dexec.args="powers 1010846"
 ## Marvel Character Powers
 The character powers are scraped from a character's wiki page if the page url is available and if the page contains the corresponding section. The secion that is used is a circle rating area at the bottom of most character wiki pages and the data it represents is what's used in the JSON response, namely: durability, energy, fighting skills, intelligence, speed, strength.
 
-### Project Structure
 ![alt text](Marvel_Character_Powers.png "Character Power Ratings")
